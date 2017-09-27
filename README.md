@@ -29,4 +29,8 @@ Download the data (https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5
 After logging into VM, cd into the vagrant directory and run the following command
 %  psql -d news -f newsdata.sql
 
+3. Clone the git repository inside the VM
+After loggin into VM, git clone this repository (other than vagrant directory)
+
+4. cd into the repo directory and run the following command
 % python logreport.py
