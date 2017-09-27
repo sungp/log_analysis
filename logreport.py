@@ -37,6 +37,7 @@ select day, fail_rate from (select date_trunc('day', time) as day,
 from log group by day) as fetch_fr where fail_rate > 0.01
 """
 
+
 def generate_report(cursor, query, title, format_str, factor):
     cursor.execute(query)
     rows = cursor.fetchall()
@@ -44,7 +45,7 @@ def generate_report(cursor, query, title, format_str, factor):
     print ""
     print title
     for row in rows:
-      print format_str.format(row[0], factor * row[1])
+        print format_str.format(row[0], factor * row[1])
 
 
 def main():
@@ -54,7 +55,7 @@ def main():
     generate_report(c, query1, title1, """ "{}" --- {}""", 1)
     generate_report(c, query2, title2, """{} --- {} views""", 1)
     generate_report(c, query3, title3,
-        """{0:%B %d, %Y} --- {1:.2f}% error""", 100.0)
+                    """{0:%B %d, %Y} --- {1:.2f}% error""", 100.0)
 
     db.close()
 
